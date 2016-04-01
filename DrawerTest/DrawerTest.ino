@@ -19,6 +19,16 @@ void ProcessCommand(void)
     Serial.write("Reply from Arduino: ");
     Serial.write(buffer);
   }
+  if(buffer[0] != '<')
+  {
+    //Problem
+  }
+  switch(buffer[1])
+  {
+    case 'S': StartTest(buffer);
+    case 'P': PauseTest();
+    case 'R': ResetTest();
+  }
 }
 
 void setup()
